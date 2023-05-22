@@ -40,44 +40,28 @@ namespace OOP1
                             currentBalance += temp;
                         }
                         break;
-                   // case "check balance"
-                    case 2: //temp1 = takeInput("Do you want to check balance(Y/N)?");
-                       // temp1 = Console.ReadLine();
-                        //if(temp1=="y" || temp1=="Y" || temp1.ToLower()=="yes") 
+                    case 2: 
                         {
                             checkBalance(currentBalance);
-                            string t = takeInput("Do you want to continue(Y/N)?");
-                            if (t=="n" || t=="no")
-                            {
-                                i = 6;
-                                break;
-                            }
-                            else
-                            {
+                            string t = takeInput("Press any key to continue... ");
                                 checkBalance(currentBalance);
-                               // continue;
-                            }
                         }
-                        //else
-                        //{
-                        //    continue;
-                        //}
                         break;
-                    case 3: temp1 = takeInput("Enter the amount to withdraw:"); // "withdraw"
-                        //temp1 = Console.ReadLine();
-                        temp = Convert.ToDouble(temp1);
-                        if (temp < 0)
+                    case 3:
+                        do
                         {
-                            string t2 = takeInput("Reenter the amount as amount cannot be negative. Press any key to continue");         
-                            continue;
-                        }
-                        else
-                        {
+                            temp1 = takeInput("Enter the amount to withdraw:");
+                            temp = Convert.ToDouble(temp1);
+                           if(temp<0)
+                                Console.WriteLine("Reenter the amount as amount cannot be negative. Press any key to continue");         
+                        } while (temp < 0);
+
+
                             if (currentBalance > temp) currentBalance -= temp;
                             else takeInput("Insufficient amt..Press any key to continue");
-                        }
+                        
                         break;
-                    default: Console.WriteLine("Please enter the text or enumerate the choice between 1,2,3");break;
+                    default: Console.WriteLine("Please enter the choice between 1,2, and 3");break;
 
                 }
                 i++;
